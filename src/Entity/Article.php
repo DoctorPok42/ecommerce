@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ArticleRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
@@ -109,9 +110,9 @@ class Article
         return $this;
     }
 
-    public function __construct()
+    public function __construct(int $author_id = 0)
     {
         $this->date = new \DateTime();
-        $this->author_id = 1;
+        $this->author_id = $author_id;
     }
 }

@@ -47,4 +47,10 @@ class Cart
 
         return $this;
     }
+
+    public function __construct(int $user_id, int $article_id)
+    {
+        $this->user_id = $user_id;
+        $this->article_id = $article_id;
+    }
 }
