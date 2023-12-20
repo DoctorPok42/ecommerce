@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article index{% endblock %}
+
+{% block body %}
+    <a href="{{ path('app_login') }}">Login</a>
+    <a href="{{ path('app_register') }}">Register</a>
+
+    <h1>Article index</h1>
+
+    {% for article in articles %}
+        <p>{{ article.id }}</p>
+        <p>{{ article.name }}</p>
+        <p>{{ article.description }}</p>
+        <p>{{ article.price }}</p>
+        <p>{{ article.date ? article.date|date('Y-m-d') : '' }}</p>
+        <p>{{ article.authorId }}</p>
+        <p>{{ article.imageLink }}</p>
+        <a href="{{ path('app_article_show', {'id': article.id}) }}">show</a>
+        {% if article.authorId == userId %}
+            <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+        {% endif %}
+    {% else %}
+        <p>no records found</p>
+    {% endfor %}
+
+    {% if userId > 0 %}
+    <a href="{{ path('app_article_new') }}">Create new</a>
+    {% endif %}
+{% endblock %}

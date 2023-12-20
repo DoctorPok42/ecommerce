@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <p>{{ article.id }}</p>
+    <p>{{ article.name }}</p>
+    <p>{{ article.description }}</p>
+    <p>{{ article.price }}</p>
+    <p>{{ article.date ? article.date|date('Y-m-d') : '' }}</p>
+    <p>{{ article.authorId }}</p>
+    <p>{{ article.imageLink }}</p>
+
+    <a href="{{ path('app_article_index') }}">back to list</a>
+
+    <a href="{{ path('app_article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}
