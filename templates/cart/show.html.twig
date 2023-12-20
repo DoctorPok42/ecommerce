@@ -5,22 +5,9 @@
 {% block body %}
     <h1>Cart</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ cart.id }}</td>
-            </tr>
-            <tr>
-                <th>User_id</th>
-                <td>{{ cart.userId }}</td>
-            </tr>
-            <tr>
-                <th>Article_id</th>
-                <td>{{ cart.articleId }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <p>{{ cart.id}}
+    <p>{{ cart.userId}}
+    <p>{{ cart.articleId}}
 
     <a href="{{ path('app_cart_index') }}">back to list</a>
 
